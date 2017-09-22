@@ -8,9 +8,8 @@
 
 header("Content-Type:text/html; charset=utf-8");
 header('Access-Control-Allow-Origin:*');
-$connect = mysqli_connect("127.0.0.1", "root", "Nsu14310520420");
+$connect = mysqli_connect('127.0.0.1', 'root', 'Nsu14310520420', 'traffic_sys');
 if (!$connect) {
     echo 'It is failed to connect to database'.mysqli_error($connect);
 }
-mysqli_select_db($connect, 'traffic_sys');
 ?>
