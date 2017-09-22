@@ -12,8 +12,8 @@ $username = @$_POST['username'] ? $_POST['username'] : NULL;
 $userSex = @$_POST['userSex'] ? $_POST['userSex'] : 0;
 //$userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : NULL;
 //$userAvatar = @$_POST['userAvatar'] ? $_POST['userAvatar'] : NULL;
-$userBirthday = NULL;
-$userAvatar = NULL;
+$userBirthday = 'NULL';
+$userAvatar = 'NULL';
 $password = @$_POST['password'] ? $_POST['password'] : NULL;
 
 if (!$connect) {
