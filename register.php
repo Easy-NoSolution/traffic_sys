@@ -7,7 +7,7 @@
  */
 
 require ('connect.php');
-
-$json = array('result' => 'success');
+$userId = @$_POST['userId'] ? $_POST['userId'] : NULL;
+$json = array('result' => 'success', 'userId' => $userId);
 exit(json_encode($json));
 mysqli_free_result($connect);
