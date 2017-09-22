@@ -25,7 +25,7 @@ if (empty($userId) and empty($username) and empty($userSex) and empty($password)
     exit(json_encode($json));
 }
 
-$sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values (''".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$userAvatar.", '".$password."')";
+$sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$userAvatar.", '".$password."')";
 $json = array('result' => $sql);
 exit(json_encode($json));
 if (!mysqli_query($connect, $sql)) {
