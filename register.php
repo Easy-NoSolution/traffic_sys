@@ -14,6 +14,11 @@ $userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : NULL;
 $userAvatar = @$_POST['userAvatar'] ? $_POST['userAvatar'] : NULL;
 $password = @$_POST['password'] ? $_POST['password'] : NULL;
 
+if (!$connect) {
+    $json = array('result' => 'It is failed to connect to database!');
+    exit(json_encode($json));
+}
+
 $json = array();
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
     $json = array('result' => 'fail');
@@ -22,7 +27,7 @@ if (empty($userId) and empty($username) and empty($userSex) and empty($password)
 
 $sql = "insert into user_tb (userid, username, userSex, userBirthday, userAvatar, password) values (''".$userId."', '".$username."', '".$userSex."', '".$userBirthday."', '".$userAvatar."', '".$password."')";
 if (!mysqli_query($connect, $sql)) {
-    $json = array('result' => 'It is failed to connect to database!');
+    $json = array('result' => 'It is failed to insert data to database!');
     exit(json_encode($json));
 }
 
