@@ -10,20 +10,12 @@ require ('connect.php');
 $userId = @$_POST['userId'] ? $_POST['userId'] : NULL;
 $username = @$_POST['username'] ? $_POST['username'] : NULL;
 $userSex = @$_POST['userSex'] ? $_POST['userSex'] : 0;
-//$userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : NULL;
-//$userAvatar = @$_POST['userAvatar'] ? $_POST['userAvatar'] : NULL;
-$userBirthday = 'NULL';
-$userAvatar = 'NULL';
+$userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : 'NULL';
+$userAvatar = @$_POST['userAvatar'] ? $_POST['userAvatar'] : 'NULL';
 $password = @$_POST['password'] ? $_POST['password'] : NULL;
 
-if (!$connect) {
-    $json = array('result' => 'It is failed to connect to database!');
-    exit(json_encode($json));
-}
-
-$json = array();
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
-    $json = array('result' => 'fail');
+    $json = array('result' => 'Some value is NULL');
     exit(json_encode($json));
 }
 
