@@ -8,7 +8,7 @@
 
 header("Content-Type:text/html; charset=utf-8");
 header('Access-Control-Allow-Origin:*');
-$connect = mysqli_connect("127.0.0.1", "root", "Nsu14310520420");
+$connect = mysqli_connect("127.0.0.1", "root", "Nsu1431052042");
 if (!$connect) {
     echo 'It is failed to connect to database'.mysqli_error($connect);
 }
