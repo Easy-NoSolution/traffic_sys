@@ -28,10 +28,7 @@ if (empty($userId) and empty($username) and empty($userSex) and empty($password)
 }
 
 $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$userAvatar.", '".$password."')";
-$result = mysqli_query($connect, $sql);
-$json = array('sql' => $sql, 'result' => mysqli_error($connect));
-exit(json_encode($json));
-if (!$result) {
+if (!mysqli_query($connect, $sql)) {
     $json = array('result' => 'It is failed to insert data to database!');
     exit(json_encode($json));
 }
