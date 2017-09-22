@@ -38,3 +38,4 @@ if (!mysqli_query($connect, $sql)) {
 $json = array('result' => 'success');
 exit(json_encode($json));
 mysqli_free_result($connect);
+?>
