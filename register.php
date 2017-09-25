@@ -17,7 +17,7 @@ $userAvatar = @$_FILES['userAvatar']['tmp_name'] ? $_FILES['userAvatar']['tmp_na
 $userBirthday = 'NULL';
 //$userAvatar = @$_POST['userAvatar'] ? $_POST['userAvatar'] : 'NULL';
 $password = @$_POST['password'] ? $_POST['password'] : NULL;
-$userAvatar = 'NULL';
+//$userAvatar = 'NULL';
 
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
     $json = array('result' => 'Some value is NULL');
