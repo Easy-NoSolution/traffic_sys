@@ -32,11 +32,10 @@ if ($_FILES['userAvatar']['error'] > 0) {
         $json = array('result' => 'It is fail to open userAvatar.png');
         exit(json_encode($json));
     } else {
+        $json = array('result' => 'It is success to open userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar, 'data' => $data);
+        exit(json_encode($json));
         $data = addslashes(fread($fp, filesize($_FILES['userAvatar']['tmp_name'])));
     }
-    move_uploaded_file($_FILES['userAvatar']['tmp_name'], "/tmp/".$_FILES['userAvatar']['name']);
-    $json = array('result' => 'It is success to upload userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar, 'data' => $data);
-    exit(json_encode($json));
 }
 
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
