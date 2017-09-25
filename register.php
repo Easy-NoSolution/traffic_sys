@@ -32,9 +32,9 @@ if ($_FILES['userAvatar']['error'] > 0) {
         $json = array('result' => 'It is fail to open userAvatar.png');
         exit(json_encode($json));
     } else {
-        $json = array('result' => 'It is success to open userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar, 'data' => $data);
-        exit(json_encode($json));
         $data = addslashes(fread($fp, filesize($_FILES['userAvatar']['tmp_name'])));
+        $json = array('result' => 'It is success to read userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar, 'data' => $data);
+        exit(json_encode($json));
     }
 }
 
