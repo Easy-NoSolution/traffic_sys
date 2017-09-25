@@ -33,6 +33,7 @@ if ($_FILES['userAvatar']['error'] > 0) {
         exit(json_encode($json));
     } else {
         $size = filesize($_FILES['userAvatar']['tmp_name']);
+        $data = fread($fp, $size);
 //        $data = addslashes(fread($fp, filesize($_FILES['userAvatar']['tmp_name'])));
         $json = array('result' => 'It is success to read userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar, 'data' => $data, 'size' => $size);
         exit(json_encode($json));
