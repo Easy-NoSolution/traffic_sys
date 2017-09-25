@@ -27,9 +27,16 @@ if ($_FILES['userAvatar']['error'] > 0) {
     $dotArray = explode('.', $fillname);
     $type = end($dotArray);
     $userAvatar = $_FILES['userAvatar']['tmp_name'];
-    move_uploaded_file($_FILES['userAvatar']['tmp_name'], "/tmp/".$_FILES['userAvatar']['name']);
-    $json = array('result' => 'It is success to upload userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar);
-    exit(json_encode($json));
+    $fp = fopen($_FILES['userAvatar']['tmp_name'], 'rb');
+    if (!$fp) {
+        $json = array('result' => 'It is fail to open userAvatar.png');
+        exit(json_encode($json));
+    } else {
+        $data = addslashes(fread($fp, filesize($_FILES['userAvatar']['tmp_name'])));
+    }
+//    move_uploaded_file($_FILES['userAvatar']['tmp_name'], "/tmp/".$_FILES['userAvatar']['name']);
+//    $json = array('result' => 'It is success to upload userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar);
+//    exit(json_encode($json));
 }
 
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
