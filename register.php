@@ -12,7 +12,7 @@ $username = @$_POST['username'] ? $_POST['username'] : NULL;
 $userSex = @$_POST['userSex'] ? $_POST['userSex'] : 0;
 //$userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : 'NULL';
 //$userBirthday = date('Y-m-d h:i:s');
-$userAvatar = @$_FILES['userAvatar']['tmp_name'] ? $_FILES['userAvatar']['tmp_name'] : 'NULL';
+
 //$data = @addslashes(fread(fopen($userAvatar, "r"), filesize($userAvatar))) ? addslashes(fread(fopen($userAvatar, "r"), filesize($userAvatar))) : 'NULL';
 $userBirthday = 'NULL';
 //$userAvatar = @$_POST['userAvatar'] ? $_POST['userAvatar'] : 'NULL';
@@ -23,7 +23,12 @@ if ($_FILES['userAvatar']['error'] > 0) {
     $json = array('result' => $_FILES['userAvatar']['error']);
     exit(json_encode($json));
 } else {
-    $json = array('result' => 'It is success to upload userAvatar');
+    $fillname = $_FILES['userAvatar']['name'];
+    $dotArray = explode('.', $fillname);
+    $type = end($dotArray);
+    $userAvatar = $_FILES['userAvatar']['tmp_name'];
+
+    $json = array('result' => 'It is success to upload userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar);
     exit(json_encode($json));
 }
 
