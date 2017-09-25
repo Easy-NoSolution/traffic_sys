@@ -12,22 +12,23 @@ $username = @$_POST['username'] ? $_POST['username'] : NULL;
 $userSex = @$_POST['userSex'] ? $_POST['userSex'] : 0;
 //$userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : 'NULL';
 //$userBirthday = date('Y-m-d h:i:s');
-$userAvatar = @$_FILES['userAvatar']['tmp_name'] ? $_FILES['userAvatar']['tmp_name'] : 'NULL';
-$data = @addslashes(fread(fopen($userAvatar, "r"), filesize($userAvatar))) ? addslashes(fread(fopen($userAvatar, "r"), filesize($userAvatar))) : 'NULL';
+//$userAvatar = @$_FILES['userAvatar']['tmp_name'] ? $_FILES['userAvatar']['tmp_name'] : 'NULL';
+//$data = @addslashes(fread(fopen($userAvatar, "r"), filesize($userAvatar))) ? addslashes(fread(fopen($userAvatar, "r"), filesize($userAvatar))) : 'NULL';
 $userBirthday = 'NULL';
 //$userAvatar = @$_POST['userAvatar'] ? $_POST['userAvatar'] : 'NULL';
 $password = @$_POST['password'] ? $_POST['password'] : NULL;
-//$userAvatar = 'NULL';
+$userAvatar = 'NULL';
+$data = 'NULL';
 
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
     $json = array('result' => 'Some value is NULL');
     exit(json_encode($json));
 }
 
-if ($userAvatar == 'NULL' or $data == 'NULL') {
-    $json = array('result' => 'userAvatar value is NULL');
-    exit(json_encode($json));
-}
+//if ($userAvatar == 'NULL' or $data == 'NULL') {
+//    $json = array('result' => 'userAvatar value is NULL');
+//    exit(json_encode($json));
+//}
 
 $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$data.", '".$password."')";
 if (!mysqli_query($connect, $sql)) {
