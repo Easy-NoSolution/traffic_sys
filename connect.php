@@ -6,8 +6,7 @@
  * Time: 09:38
  */
 
-header("Content-Type:text/html; charset=utf-8");
-header('Access-Control-Allow-Origin:*');
+header("Content-Type: text/json; charset=UTF-8");
 $connect = mysqli_connect('127.0.0.1', 'root', 'Nsu14310520420');
 $json = array();
 if (!$connect) {
