@@ -27,7 +27,7 @@ if ($_FILES['userAvatar']['error'] > 0) {
     $dotArray = explode('.', $fillname);
     $type = end($dotArray);
     $userAvatar = $_FILES['userAvatar']['tmp_name'];
-    move_uploaded_file($_FILES['userAvatar']['tmp_name'], "/tmp".$_FILES['userAvatar']['name']);
+//    move_uploaded_file($_FILES['userAvatar']['tmp_name'], "/tmp".$_FILES['userAvatar']['name']);
     $json = array('result' => 'It is success to upload userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar);
     exit(json_encode($json));
 }
