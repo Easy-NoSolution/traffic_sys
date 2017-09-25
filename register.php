@@ -34,20 +34,15 @@ if ($_FILES['userAvatar']['error'] > 0) {
     } else {
         $data = addslashes(fread($fp, filesize($_FILES['userAvatar']['tmp_name'])));
     }
-//    move_uploaded_file($_FILES['userAvatar']['tmp_name'], "/tmp/".$_FILES['userAvatar']['name']);
-//    $json = array('result' => 'It is success to upload userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar);
-//    exit(json_encode($json));
+    move_uploaded_file($_FILES['userAvatar']['tmp_name'], "/tmp/".$_FILES['userAvatar']['name']);
+    $json = array('result' => 'It is success to upload userAvatar', 'fillname' => $fillname, 'userAvatar' => $userAvatar, 'data' => $data);
+    exit(json_encode($json));
 }
 
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
     $json = array('result' => 'Some value is NULL');
     exit(json_encode($json));
 }
-
-//if ($userAvatar == 'NULL' or $data == 'NULL') {
-//    $json = array('result' => 'userAvatar value is NULL');
-//    exit(json_encode($json));
-//}
 
 $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$data.", '".$password."')";
 if (!mysqli_query($connect, $sql)) {
