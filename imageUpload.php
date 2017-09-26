@@ -5,10 +5,10 @@ if(count($_FILES) > 0) {
         require ('connect.php');
         $data =addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
         $imageProperties = getimageSize($_FILES['userImage']['tmp_name']);
-        $userId = '126';
+        $userId = '1';
         $username = 'ffff';
         $userSex = 0;
-        $userBirthday = date('Y-m-d');
+        $userBirthday = null;
         $password = 'kfskldjf';
 //        $sql = "INSERT INTO output_images(imageType ,imageData)  VALUES('{$imageProperties['mime']}', '{$imgData}')";
 //        $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$data.", '".$password."')";
