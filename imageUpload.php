@@ -8,7 +8,7 @@ if(count($_FILES) > 0) {
         $userId = '123';
         $username = 'fjsk';
         $userSex = 0;
-        $userBirthday = NULL;
+        $userBirthday = date('Y-m-d');
         $password = 'kfskldjf';
 //        $sql = "INSERT INTO output_images(imageType ,imageData)  VALUES('{$imageProperties['mime']}', '{$imgData}')";
 //        $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$data.", '".$password."')";
