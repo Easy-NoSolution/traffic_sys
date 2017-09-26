@@ -10,6 +10,7 @@ if(count($_FILES) > 0) {
         $userSex = 0;
         $userBirthday = 'NULL';
         $password = 'kfskldjf';
+        echo 'data='.$data;
 //        $sql = "INSERT INTO output_images(imageType ,imageData)  VALUES('{$imageProperties['mime']}', '{$imgData}')";
         $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$data.", '".$password."')";
         $current_id = mysqli_query($connect, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" .
