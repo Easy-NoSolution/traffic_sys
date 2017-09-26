@@ -13,7 +13,7 @@ if(count($_FILES) > 0) {
 //        $sql = "INSERT INTO output_images(imageType ,imageData)  VALUES('{$imageProperties['mime']}', '{$imgData}')";
         $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('".$userId."', '".$username."', ".$userSex.", ".$userBirthday.", ".$data.", '".$password."')";
         $current_id = mysqli_query($connect, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" .
-            mysqli_error());
+            mysqli_error($connect));
         if(isset($current_id)) {
             header("Location: listImages.php");
         }}}
