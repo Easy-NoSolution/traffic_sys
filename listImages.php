@@ -5,12 +5,7 @@
 </HEAD>
 <BODY>
 <?php
-while($row = mysqli_fetch_array($result)) {
-    ?>
-    <img src="imageView.php?userId=123" /><br/>
-    <?php
-}
-mysqli_close($conn);
+<img src="imageView.php?userId=124" /><br/>
 ?>
 </BODY>
 </HTML>
