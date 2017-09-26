@@ -4,6 +4,6 @@
     <link href="imageStyles.css" rel="stylesheet" type="text/css" />
 </HEAD>
 <BODY>
-<img src="imageView.php?userId=125" /><br/>
+<img src="imageView.php?userId=126" /><br/>
 </BODY>
 </HTML>
