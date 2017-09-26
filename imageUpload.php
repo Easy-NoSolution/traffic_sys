@@ -5,7 +5,7 @@ if(count($_FILES) > 0) {
         require ('connect.php');
         $data =addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
         $imageProperties = getimageSize($_FILES['userImage']['tmp_name']);
-        $userId = '124';
+        $userId = '125';
         $username = 'ffff';
         $userSex = 0;
         $userBirthday = date('Y-m-d');
