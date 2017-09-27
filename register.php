@@ -28,6 +28,14 @@ if (empty($userId) and empty($username) and empty($userSex) and empty($password)
     exit(json_encode($json));
 }
 
+$sql = "select * from user_tb where userId = '{$userId}'";
+$result = mysqli_query($connect, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_BOTH);
+if ($row) {
+    $json = array("result" => "This account has exist! Please enter another account");
+    exit(json_encode($json));
+}
+
 $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('{$userId}', '{$username}', '{$userSex}', '{$userBirthday}', '{$userAvatar}', '{$password}')";
 if (!mysqli_query($connect, $sql)) {
     $json = array('result' => 'It is failed to insert data to database!', 'sql' => $sql);
