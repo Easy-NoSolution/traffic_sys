@@ -16,8 +16,8 @@ if (empty($userId) && empty($password)) {
     exit(json_encode($json));
 }
 
-$json = array("result" => "error");
-exit(json_encode($json));
+//$json = array("result" => "error");
+//exit(json_encode($json));
 $sql = "select * from user_tb where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
@@ -26,6 +26,6 @@ if (!$row) {
     exit(json_encode($json));
 }
 
-$json = array('userId' => $row['userId'], 'username' => $row['username'], 'userSex' => $row['userSex'], 'userBirthday' => $row['userBirthday'], 'userAvatar' => $row['userAvatar'], 'password' => $row['password']);
+$json = array('userId' => $row['userId'], 'username' => $row['username'], 'userSex' => $row['userSex'], 'userBirthday' => $row['userBirthday'], 'password' => $row['password']);
 exit(json_encode($json));
 ?>
