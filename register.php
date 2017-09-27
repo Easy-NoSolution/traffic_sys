@@ -7,16 +7,15 @@
  */
 
 require ('connect.php');
-$userId = @$_POST['userId'] ? $_POST['userId'] : NULL;
-$username = @$_POST['username'] ? $_POST['username'] : NULL;
+$userId = @$_POST['userId'] ? $_POST['userId'] : null;
+$username = @$_POST['username'] ? $_POST['username'] : null;
 $userSex = @$_POST['userSex'] ? $_POST['userSex'] : 0;
 //$userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : 'NULL';
 $userBirthday = date('Y-m-d h:i:s');
 //$userBirthday = 'NULL';
-//$userAvatar = @$_POST['userAvatar'] ? $_POST['userAvatar'] : 'NULL';
-$password = @$_POST['password'] ? $_POST['password'] : NULL;
-$userAvatar = 'NULL';
-$data = 'NULL';
+$password = @$_POST['password'] ? $_POST['password'] : null;
+$userAvatar = 'null';
+$data = 'null';
 if ($_FILES['userAvatar']['error'] > 0) {
     $json = array('result' => $_FILES['userAvatar']['error']);
     exit(json_encode($json));
@@ -25,7 +24,7 @@ if ($_FILES['userAvatar']['error'] > 0) {
 }
 
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
-    $json = array('result' => 'Some value is NULL');
+    $json = array('result' => 'Some value is null');
     exit(json_encode($json));
 }
 
