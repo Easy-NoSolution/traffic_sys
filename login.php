@@ -16,6 +16,8 @@ if (empty($userId) && empty($password)) {
     exit(json_encode($json));
 }
 
+$json = array("result" => "error");
+exit(json_encode($json));
 $sql = "select * from user_tb where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
