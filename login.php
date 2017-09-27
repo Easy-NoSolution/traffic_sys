@@ -20,10 +20,10 @@ $sql = "select * from user_tb where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if (!$row) {
-    $json = array("result" => "This account is not exitst or The password is incorrect");
+    $json = array("result" => "This account is not exist or The password is incorrect");
     exit(json_encode($json));
 }
 
-$json = array('userId' => $row['userId'], 'username' => $row['username'], 'userSex' => $row['userSex'], 'userBirthday' => $row['userBirthday'], 'password' => $row['password']);
+$json = array('userId' => $row['userId'], 'username' => $row['username'], 'userSex' => $row['userSex'], 'userBirthday' => $row['userBirthday'], 'userAvatar' => $row['userAvatar'], 'password' => $row['password']);
 exit(json_encode($json));
 ?>
