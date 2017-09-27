@@ -16,13 +16,11 @@ if (empty($userId) && empty($password)) {
     exit(json_encode($json));
 }
 
-//$json = array("result" => "error");
-//exit(json_encode($json));
 $sql = "select * from user_tb where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if (!$row) {
-    $json = array("result" => "账户不存在 或者 密码错误");
+    $json = array("result" => "This account is not exitst or The password is incorrect");
     exit(json_encode($json));
 }
 
