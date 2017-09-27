@@ -24,6 +24,6 @@ if (!$row) {
     exit(json_encode($json));
 }
 
-$json = array('userId' => $row['userId'], 'username' => $row['username'], 'userSex' => $row['userSex'], 'userBirthday' => $row['userBirthday'], 'userAvatar' => $row['userAvatar'], 'password' => $row['password']);
+$json = array('userId' => $row['userId'], 'username' => $row['username'], 'userSex' => $row['userSex'], 'userBirthday' => $row['userBirthday'], 'password' => $row['password']);
 exit(json_encode($json));
 ?>
