@@ -6,7 +6,7 @@
  * Time: 15:16
  */
 
-require ('connect.php')
+require ('connect.php');
 
 $userId = @$_POST['userId'] ? $_POST['userId'] : null;
 $password = @$_POST['password'] ? $_POST['password'] : null;
