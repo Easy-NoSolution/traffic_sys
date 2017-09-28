@@ -10,7 +10,7 @@ header("Content-Type: text/json; charset=UTF-8");
 $connect = mysqli_connect('127.0.0.1', 'root', 'Nsu14310520420');
 $json = array();
 if (!$connect) {
-    $json = array('result' => 'It is failed to connect to database'.mysqli_error($connect));
+    $json = array('result' => 'failed', 'errorInfo' => 'It is failed to connect to database'.mysqli_error($connect));
     exit(json_encode($json));
 }
 

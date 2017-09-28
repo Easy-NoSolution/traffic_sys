@@ -13,7 +13,7 @@ $password = @$_POST['password'] ? $_POST['password'] : null;
 
 $json = array();
 if (empty($userId) && empty($password)) {
-    $json = array('result' => 'Some value is null');
+    $json = array('result' => 'failed', 'errorInfo' => 'Some value is null');
     exit(json_encode($json));
 }
 
@@ -21,14 +21,14 @@ $sql = "select userId from user_tb where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if (!$row) {
-    $json = array('result' => 'This account is not exist');
+    $json = array('result' => 'failed', 'errorInfo' => 'This account is not exist');
     exit(json_encode($json));
 }
 
 $sql = "update user_tb set password = '{$password}' where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 if (!$result) {
-    $json = array('result' => 'It is failed to modify password');
+    $json = array('result' => 'failed', 'errorInfo' => 'It is failed to modify password');
     exit(json_encode($json));
 }
 

@@ -12,7 +12,7 @@ $userId = @$_POST['userId'] ? $_POST['userId'] : null;
 $password = @$_POST['password'] ? $_POST['password'] : null;
 $json = array();
 if (empty($userId) && empty($password)) {
-    $json = array("result" => "Some value is null");
+    $json = array("result" => 'failed', 'errorInfo' => "Some value is null");
     exit(json_encode($json));
 }
 
@@ -20,7 +20,7 @@ $sql = "select * from user_tb where userId = '{$userId}' and password = '{$passw
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if (!$row) {
-    $json = array("result" => "This account is not exist or The password is incorrect");
+    $json = array("result" => 'failed', 'errorInfo' => "This account is not exist or The password is incorrect");
     exit(json_encode($json));
 }
 
