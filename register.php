@@ -16,8 +16,6 @@ $userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : 'NULL';
 $password = @$_POST['password'] ? $_POST['password'] : null;
 $userAvatar = 'null';
 $data = 'null';
-$json = array('result' => 'failed');
-exit(json_encode($json));
 if ($_FILES['userAvatar']['error'] > 0) {
     $json = array('result' => 'failed', 'errorInfo' => $_FILES['userAvatar']['error']);
     exit(json_encode($json));
@@ -29,7 +27,8 @@ if (empty($userId) and empty($username) and empty($userSex) and empty($password)
     $json = array('result' => 'failed', 'errorInfo' => 'Some value is null');
     exit(json_encode($json));
 }
-
+$json = array('result' => 'failed');
+exit(json_encode($json));
 $sql = "select * from user_tb where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
