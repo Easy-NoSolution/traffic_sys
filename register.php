@@ -11,7 +11,7 @@ $userId = @$_POST['userId'] ? $_POST['userId'] : null;
 $username = @$_POST['username'] ? $_POST['username'] : null;
 $userSex = @$_POST['userSex'] ? $_POST['userSex'] : 0;
 $userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : 'NULL';
-//$userBirthday = date('Y-m-d h:i:s');
+$userBirthday = strtotime($userBirthday);
 $password = @$_POST['password'] ? $_POST['password'] : null;
 $userAvatar = 'null';
 $data = 'null';
@@ -35,10 +35,6 @@ if ($row) {
     exit(json_encode($json));
 }
 
-$t1 = strtotime($userBirthday);
-$t2 = strtotime(date('Y-m-d h:i:s'));
-$json = array('result' => 'failed', 'iOS' => $t1."   ".$userBirthday, "php" => $t2."    ".date('Y-m-d h:i:s'));
-exit(json_encode($json));
 $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('{$userId}', '{$username}', '{$userSex}', '{$userBirthday}', '{$userAvatar}', '{$password}')";
 $json = array('result' => 'failed', 'sql' => $sql);
 exit(json_encode($json));
