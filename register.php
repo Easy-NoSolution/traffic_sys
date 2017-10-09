@@ -35,8 +35,7 @@ if ($row) {
     $json = array("result" => 'failed', 'errorInfo' => "This account has exist! Please enter another account");
     exit(json_encode($json));
 }
-$json = array('result' => 'failed');
-exit(json_encode($json));
+
 $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('{$userId}', '{$username}', '{$userSex}', '{$userBirthday}', '{$userAvatar}', '{$password}')";
 $json = array('result' => 'failed', 'sql' => $sql);
 exit(json_encode($json));
