@@ -37,6 +37,8 @@ if ($row) {
 }
 
 $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('{$userId}', '{$username}', '{$userSex}', '{$userBirthday}', '{$userAvatar}', '{$password}')";
+$json = array('result' => 'failed', 'sql' => $sql);
+exit(json_encode($json));
 if (!mysqli_query($connect, $sql)) {
     $json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => $sql);
     exit(json_encode($json));
