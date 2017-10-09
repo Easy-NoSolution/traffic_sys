@@ -14,7 +14,6 @@ $userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : 'NULL';
 $userBirthday = strtotime($userBirthday);
 $password = @$_POST['password'] ? $_POST['password'] : null;
 $userAvatar = 'null';
-$data = 'null';
 if ($_FILES['userAvatar']['error'] > 0) {
     $json = array('result' => 'failed', 'errorInfo' => $_FILES['userAvatar']['error']);
     exit(json_encode($json));
