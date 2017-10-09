@@ -29,8 +29,6 @@ if (empty($userId) and empty($username) and empty($userSex) and empty($password)
 }
 
 $sql = "select * from user_tb where userId = '{$userId}'";
-$json = array('result' => 'failed', 'sql' => $sql);
-exit(json_encode($json));
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if ($row) {
