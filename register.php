@@ -37,7 +37,7 @@ if ($row) {
 
 $t1 = strtotime($userBirthday);
 $t2 = strtotime(date('Y-m-d h:i:s'));
-$json = array('result' => 'failed', 'iOS' => $t1, "php" => $t2);
+$json = array('result' => 'failed', 'iOS' => $t1."   ".$userBirthday, "php" => $t2."    ".date('Y-m-d h:i:s'));
 exit(json_encode($json));
 $sql = "insert into user_tb (userId, username, userSex, userBirthday, userAvatar, password) values ('{$userId}', '{$username}', '{$userSex}', '{$userBirthday}', '{$userAvatar}', '{$password}')";
 $json = array('result' => 'failed', 'sql' => $sql);
