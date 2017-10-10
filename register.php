@@ -22,11 +22,11 @@ if ($_FILES['userAvatar']['error'] > 0) {
     $fillname = $_FILES['userAvatar']['name'];
     $dotArray = explode('.', $fillname);
     $type = end($dotArray);
-    $path = "/usr/local/apache/htdocs/traffic_sys_pictures/".$userId.'.'.$type;
+    $userAvatar = "/traffic_sys_pictures/".$userId.'.'.$type;
+    $path = "/usr/local/apache/htdocs".$userAvatar;
 //    上传时要去虚拟机下修改文件夹的权限 chmod 777 /usr/local/apache/htdocs/traffic_sys_pictures
 //    否则会报错 Error Domain=NSCocoaErrorDomain Code=3840 "JSON text did not start with array or object and option to allow fragments not set." UserInfo={NSDebugDescription=JSON text did not start with array or object and option to allow fragments not set.}
     move_uploaded_file($_FILES['userAvatar']['tmp_name'], $path);
-    $userAvatar = $path;
 }
 
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
