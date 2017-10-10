@@ -14,13 +14,14 @@ if ($_FILES['userAvatar']['error'] > 0) {
     exit(json_encode($json));
 } else {
 //    $userAvatar = addslashes(file_get_contents($_FILES['userAvatar']['tmp_name']));  获取图片数据
-//    $fillname = $_FILES['userAvatar']['name'];
-//    $dotArray = explode('.', $fillname);
-//    $type = end($dotArray);
-//    $path = "/usr/local/apache/htdocs/traffic_sys_pictures/" . $userId . '.' . $type;
+    $fillname = $_FILES['userAvatar']['name'];
+    $dotArray = explode('.', $fillname);
+    $type = end($dotArray);
+    $path = "/usr/local/apache/htdocs/traffic_sys_pictures/" . $userId . '.' . $type;
 //    move_uploaded_file($_FILES['userAvatar']['tmp_name'], $path);
+
+    $json = array('result' => 'success', 'fillname' => $fillname, 'userId' => $userId, 'type' => $type, 'path' => $path);
+    exit(json_encode($json));
 }
 
-$json = array('result' => 'success');
-exit(json_encode($json));
 ?>
