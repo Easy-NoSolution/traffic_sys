@@ -18,7 +18,13 @@ if ($_FILES['userAvatar']['error'] > 0) {
     $json = array('result' => 'failed', 'errorInfo' => $_FILES['userAvatar']['error']);
     exit(json_encode($json));
 } else {
-    $userAvatar = addslashes(file_get_contents($_FILES['userAvatar']['tmp_name']));
+//    $userAvatar = addslashes(file_get_contents($_FILES['userAvatar']['tmp_name']));  获取图片数据
+    $fillname = $_FILES['userAvatar']['name'];
+    $dotArray = explode('.', $fillname);
+    $type = end($dotArray);
+    $path = "/usr/local/apache/htdocs/traffic_sys_picture/".$userId.'.'.$type;
+    move_uploaded_file($_FILES['userAvatar']['tmp_name'], $path);
+    $userAvatar = $path;
 }
 
 if (empty($userId) and empty($username) and empty($userSex) and empty($password)) {
