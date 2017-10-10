@@ -7,7 +7,6 @@
  */
 
 require ('connect.php');
-define('RooT', dirname(__FILE__).'/');
 $userId = @$_POST['userId'] ? $_POST['userId'] : null;
 $userAvatar = 'null';
 if ($_FILES['userAvatar']['error'] > 0) {
@@ -20,7 +19,7 @@ if ($_FILES['userAvatar']['error'] > 0) {
     $type = end($dotArray);
     $path = "/usr/local/apache/htdocs/traffic_sys_pictures/" . $userId . '.' . $type;
 //    $path = RooT.'/etc/a.png';
-    move_uploaded_file($_FILES['userAvatar']['tmp_name'], '/usr/local/apache/htdocs/traffic_sys_pictures/123.png');
+    move_uploaded_file($_FILES['userAvatar']['tmp_name'], 'tmp/123456.png');
 
     $json = array('result' => 'success', 'fillname' => $fillname, 'userId' => $userId, 'type' => $type, 'path' => $path);
     exit(json_encode($json));
