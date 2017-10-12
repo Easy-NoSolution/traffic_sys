@@ -56,7 +56,15 @@ if (!$result) {
     exit(json_encode($json));
 }
 
-$json = array('result' => 'success');
+$sql = "select * from user_tb where userId = '{$userId}'";
+$result = mysqli_query($connect, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_BOTH);
+if (!$row) {
+    $json = array("result" => 'failed', 'errorInfo' => "This account is not exist");
+    exit(json_encode($json));
+}
+
+$json = array('result' => 'success', 'userInfo' => array('userId' => $row['userId'], 'username' => $row['username'], 'userSex' => $row['userSex'], 'userBirthday' => $row['userBirthday'], 'userAvatar' => $row['userAvatar'], 'password' => $row['password']));
 exit(json_encode($json));
 ?>
 
