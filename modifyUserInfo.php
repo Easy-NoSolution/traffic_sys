@@ -37,7 +37,7 @@ if (!$result) {
     $json = array('result' => 'failed', 'errorInfo' => 'It is failed to modify username');
     exit(json_encode($json));
 }
-$json = array('username1' => $_POST['username'], 'username2' => $username);
+$json = array('userSex1' => $_POST['userSex'], 'userSex2' => $userSex);
 exit(json_encode($json));
 $sql = "update user_tb set userSex = '{$userSex}' where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
