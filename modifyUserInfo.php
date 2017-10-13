@@ -9,7 +9,7 @@
 require ("connect.php");
 $userId = @$_POST['userId'] ? $_POST['userId'] : null;
 $username = @$_POST["username"] ? $_POST["username"] : null;
-$userSex = @$_POST['userSex'] ? $_POST['userSex'] : null;
+$userSex = @$_POST['userSex'] ? $_POST['userSex'] : 0;
 $userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : null;
 $userBirthday = strtotime($userBirthday);
 $userAvatar = null;
