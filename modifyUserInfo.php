@@ -9,7 +9,7 @@
 require ("connect.php");
 $userId = @$_POST['userId'] ? $_POST['userId'] : null;
 $username = @$_POST["username"] ? $_POST["username"] : null;
-$userSex = @$_POST['userSex'] ? $_POST['userSex'] : 0;
+$userSex = @$_POST['userSex'] ? $_POST['userSex'] : null;
 $userBirthday = @$_POST['userBirthday'] ? $_POST['userBirthday'] : null;
 $userBirthday = strtotime($userBirthday);
 $userAvatar = null;
@@ -37,6 +37,8 @@ if (!$result) {
     $json = array('result' => 'failed', 'errorInfo' => 'It is failed to modify username');
     exit(json_encode($json));
 }
+$json = array('username1' => $_POST['username'], 'username2' => $username);
+exit(json_encode($json));
 $sql = "update user_tb set userSex = '{$userSex}' where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 if (!$result) {
