@@ -16,7 +16,7 @@ if (empty($userId)) {
     exit(json_encode($json));
 }
 
-$sql = "select * from loginLog_tb where userId = '{$userId}' limit {$offset}, {$rows}";
+$sql = "select * from loginLog_tb where userId = '{$userId}' order by loginId desc limit {$offset}, {$rows}";
 $result = mysqli_query($connect, $sql);
 $logs = array();
 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
