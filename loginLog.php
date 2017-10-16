@@ -14,7 +14,8 @@ $loginDate = strtotime($loginDate);
 $logoutDate = strtotime($logoutDate);
 
 $json = array();
-$json = array('1' => empty($userId), '2' => empty($loginDate), '3' => empty($logoutDate));
+
+$json = array('1' => empty($userId), '2' => empty($loginDate), '3' => empty($logoutDate), '4' => $userId, '5' => $loginDate, '6' => $logoutDate);
 exit(json_encode($json));
 if (empty($userId) and (empty($loginDate) or empty($logoutDate))) {
     $json = array('result' => 'failed', 'errorInfo' => 'Some value is null');
