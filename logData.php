@@ -18,6 +18,10 @@ if (empty($userId)) {
 
 $sql = "select * form loginLog_tb where userId = '{$userId}' limit '{$offset}', '{$rows}'";
 $result = mysqli_query($connect, $sql);
+if (!$result) {
+    $json = array("result" => 'failed', 'errorInfo' => "It is failed to search logs");
+    exit(json_encode($json));
+}
 $json = array('result' => 'success', 'logs' => $result);
 exit(json_encode($json))
 ?>
