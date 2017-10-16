@@ -22,6 +22,8 @@ if (!$result) {
     $json = array("result" => 'failed', 'errorInfo' => "It is failed to search logs");
     exit(json_encode($json));
 }
+$json = array('result' => 'success');
+exit(json_encode($json));
 $json = array('result' => 'success', 'logs' => $result);
-exit(json_encode($json))
+exit(json_encode($json));
 ?>
