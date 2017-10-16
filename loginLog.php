@@ -24,8 +24,6 @@ if (empty($loginDate)) {
 } else {
     $sql = "insert into loginLog_tb (userId, loginDate) VALUES ('{$userId}', '{$loginDate}')";
 }
-$json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => $sql);
-exit(json_encode($json));
 $result = mysqli_query($connect, $sql);
 if (!$result) {
     $json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => $sql);
