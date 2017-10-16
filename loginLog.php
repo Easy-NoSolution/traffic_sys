@@ -7,9 +7,9 @@
  */
 require ("connect.php");
 
-$userId = @$_POST['userId'] ? $_POST['userId'] : null;
-$loginDate = @$_POST['loginDate'] ? $_POST['loginDate'] : null;
-$logoutDate = @$_POST['logoutDate'] ? $_POST['logoutDate'] : null;
+$userId = @$_GET['userId'] ? $_GET['userId'] : null;
+$loginDate = @$_GET['loginDate'] ? $_GET['loginDate'] : null;
+$logoutDate = @$_GET['logoutDate'] ? $_GET['logoutDate'] : null;
 $loginDate = strtotime($loginDate);
 $logoutDate = strtotime($logoutDate);
 
