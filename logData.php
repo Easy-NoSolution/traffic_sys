@@ -19,4 +19,5 @@ if (empty($userId)) {
 $sql = "select * form loginLog_tb where userId = '{$userId}' limit '{$offset}', '{$rows}'";
 $result = mysqli_query($connect, $sql);
 $json = array('result' => 'success', 'logs' => $result);
+exit(json_encode($json))
 ?>
