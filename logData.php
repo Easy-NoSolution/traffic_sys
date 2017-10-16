@@ -7,9 +7,9 @@
  */
 require ("connect.php");
 
-$userId = @$_POST['userId'] ? $_POST['userId'] : null;
-$offset = @$_POST['offset'] ? $_POST['offset'] : 0;
-$rows = $_POST['rows'] ? $_POST['rows'] : 0;
+$userId = @$_GET['userId'] ? $_GET['userId'] : null;
+$offset = @$_GET['offset'] ? $_GET['offset'] : 0;
+$rows = $_GET['rows'] ? $_GET['rows'] : 0;
 
 if (empty($userId)) {
     $json = array('result' => 'failed', 'errorInfo' => 'UserId is null');
