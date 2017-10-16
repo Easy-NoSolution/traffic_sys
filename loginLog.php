@@ -20,9 +20,9 @@ if (empty($userId) and (empty($loginDate) or empty($logoutDate))) {
 }
 $sql = "";
 if (empty($loginDate)) {
-    $sql = "insert into loginLog_tb (userId, loginDate, logoutDate) VALUES ('{$userId}', '{$logoutDate}')";
+    $sql = "insert into loginLog_tb (userId, logoutDate) VALUES ('{$userId}', '{$logoutDate}')";
 } else {
-    $sql = "insert into loginLog_tb (userId, loginDate, logoutDate) VALUES ('{$userId}', '{$loginDate}')";
+    $sql = "insert into loginLog_tb (userId, loginDate) VALUES ('{$userId}', '{$loginDate}')";
 }
 $result = mysqli_query($connect, $sql);
 if (!$result) {
