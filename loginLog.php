@@ -19,7 +19,7 @@ if (empty($userId) and (empty($loginDate) or empty($logoutDate))) {
     exit(json_encode($json));
 }
 
-$sql = "insert into loginLog_tb ('userId', 'loginDate', 'logoutDate') VALUES ('{$userId}', '{$loginDate}', '{$logoutDate}')";
+$sql = "insert into loginLog_tb ('userId', 'loginDate', 'logoutDate') VALUES ('{$userId}',".$loginDate.", ".$logoutDate.")";
 $result = mysqli_query($connect, $sql);
 if (!$result) {
     $json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => $sql);
