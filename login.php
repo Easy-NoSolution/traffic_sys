@@ -20,7 +20,7 @@ $sql = "select * from user_tb where userId = '{$userId}' and password = '{$passw
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if (!$row) {
-    $json = array("result" => 'failed', 'errorInfo' => "This account is not exist or The password is incorrect");
+    $json = array("result" => 'failed', 'errorInfo' => "This account is not exist or The password is incorrect", 'sql' => $sql);
     exit(json_encode($json));
 }
 

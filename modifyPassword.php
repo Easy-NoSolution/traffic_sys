@@ -28,7 +28,7 @@ if (!$row) {
 $sql = "update user_tb set password = '{$password}' where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 if (!$result) {
-    $json = array('result' => 'failed', 'errorInfo' => 'It is failed to modify password');
+    $json = array('result' => 'failed', 'errorInfo' => 'It is failed to modify password', 'sql' => $sql);
     exit(json_encode($json));
 }
 

@@ -38,7 +38,7 @@ $sql = "select * from user_tb where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if ($row) {
-    $json = array("result" => 'failed', 'errorInfo' => "This account has exist! Please enter another account");
+    $json = array("result" => 'failed', 'errorInfo' => "This account has exist! Please enter another account", 'sql' => $sql);
     exit(json_encode($json));
 }
 

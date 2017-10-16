@@ -60,7 +60,7 @@ $sql = "select * from user_tb where userId = '{$userId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if (!$row) {
-    $json = array("result" => 'failed', 'errorInfo' => "This account is not exist");
+    $json = array("result" => 'failed', 'errorInfo' => "This account is not exist", 'sql' => $sql);
     exit(json_encode($json));
 }
 
