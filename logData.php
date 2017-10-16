@@ -22,10 +22,6 @@ $logs = array();
 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
     array_push($logs, array('userId' => $row['userId'], 'loginDate' => $row['loginDate'], 'logoutDate' => $row['logoutDate']));
 }
-//if (!$result) {
-//    $json = array("result" => 'failed', 'errorInfo' => "It is failed to search logs", 'sql' => $sql);
-//    exit(json_encode($json));
-//}
 $json = array('result' => 'success', 'logs' => $logs);
 exit(json_encode($json));
 ?>
