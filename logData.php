@@ -23,8 +23,6 @@ if (!$result) {
     $json = array("result" => 'failed', 'errorInfo' => "It is failed to search logs", 'sql' => $sql);
     exit(json_encode($json));
 }
-$json = array('result' => 'success');
-exit(json_encode($json));
 $json = array('result' => 'success', 'logs' => $result);
 exit(json_encode($json));
 ?>
