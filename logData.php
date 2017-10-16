@@ -17,11 +17,10 @@ if (empty($userId)) {
 }
 
 $sql = "select * from loginLog_tb where userId = '{$userId}' limit {$offset}, {$rows}";
-//$sql = "select * from loginLog_tb where userId = '{$userId}' limit ".$offset.", ".$rows;
 $result = mysqli_query($connect, $sql);
 $logs = array();
 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-    array_push($logs, $row);
+    array_push($logs, array('userId' => $row['userId'], 'loginDate' => $row['loginDate'], 'logoutDate' => $row['logoutDate']));
 }
 //if (!$result) {
 //    $json = array("result" => 'failed', 'errorInfo' => "It is failed to search logs", 'sql' => $sql);
