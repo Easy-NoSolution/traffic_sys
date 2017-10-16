@@ -20,7 +20,7 @@ $sql = "select * from loginLog_tb where userId = '{$userId}' limit {$offset}, {$
 $result = mysqli_query($connect, $sql);
 $logs = array();
 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-    array_push($logs, array('userId' => $row['userId'], 'loginDate' => $row['loginDate'], 'logoutDate' => $row['logoutDate']));
+    array_push($logs, array('loginDate' => $row['loginDate'], 'logoutDate' => $row['logoutDate']));
 }
 $json = array('result' => 'success', 'logs' => $logs);
 exit(json_encode($json));
