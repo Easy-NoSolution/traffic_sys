@@ -22,7 +22,7 @@ if ($_FILES['userAvatar']['error'] > 0) {
     $fillname = $_FILES['userAvatar']['name'];
     $dotArray = explode('.', $fillname);
     $type = end($dotArray);
-    $userAvatar = "/traffic_sys_pictures/".$userId.'.'.$type;
+    $userAvatar = "/traffic_sys_pictures/user_pics/".$userId.'.'.$type;
     $path = "/usr/local/apache/htdocs".$userAvatar;
     move_uploaded_file($_FILES['userAvatar']['tmp_name'], $path);
 }
