@@ -20,7 +20,7 @@ if (empty($carId) and empty($carName) and empty($carColor) and empty($carOwnerId
     exit(json_encode($json));
 }
 
-$sql = "insert into car_tb (carId, carName, carColor, carOwnerId) values ('{$carId}', '{$carName}', '{$carColor}', '{$carownerId}')";
+//$sql = "insert into car_tb (carId, carName, carColor, carOwnerId) values ('{$carId}', '{$carName}', '{$carColor}', '{$carownerId}')";
 $json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => "sql");
 exit(json_encode($json));
 if (!mysqli_query($connect, $sql)) {
