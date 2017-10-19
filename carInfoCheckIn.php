@@ -12,7 +12,8 @@ $carId = @$_POST['carId'] ? $_POST['carId'] : null;
 $carName = @$_POST['carName'] ? $_POST['carName'] : null;
 $carColor = @$_POST['carColor'] ? $_POST['carColor'] : null;
 $carOwnerId = @$_POST['carOwnerId'] ? $_POST['carOwnerId'] : null;
-
+$json = array('result' => 'failed', 'errorInfo' => 'Some value is null');
+exit(json_encode($json));
 $json = array();
 
 if (empty($carId) and empty($carName) and empty($carColor) and empty($carOwnerId)) {
