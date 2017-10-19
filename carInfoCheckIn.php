@@ -20,6 +20,14 @@ if (empty($carId) and empty($carName) and empty($carColor) and empty($carOwnerId
     exit(json_encode($json));
 }
 
+$sql = "select * from car_tb where carId = '{$carId}'";
+$result = mysqli_query($connect, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_BOTH);
+if ($row) {
+    $json = array("result" => 'failed', 'errorInfo' => "This account has exist! Please enter another account", 'sql' => $sql);
+    exit(json_encode($json));
+}
+
 $sql = "insert into car_tb (carId, carName, carColor, carOwnerId) values ('{$carId}', '{$carName}', '{$carColor}', '{$carOwnerId}')";
 if (!mysqli_query($connect, $sql)) {
     $json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => $sql);
