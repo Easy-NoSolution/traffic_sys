@@ -19,8 +19,7 @@ if (empty($carId) and empty($carName) and empty($carColor) and empty($carOwnerId
     $json = array('result' => 'failed', 'errorInfo' => 'Some value is null');
     exit(json_encode($json));
 }
-$json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'carId' => $carId, 'carName' => $carName, 'carColor' => $carColor, 'carOwnerId' => $carOwnerId);
-exit(json_encode($json));
+
 $sql = "insert into car_tb (carId, carName, carColor, carOwnerId) VALUES ('{$carId}', '{$carName}', '{$carColor}', '{$carownerId}')";
 $json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => $sql);
 exit(json_encode($json));
