@@ -19,6 +19,8 @@ if (empty($carId) or empty($carOwnerId) or empty($lawbreakerInfo)) {
 }
 
 $sql = "insert into lawbreakerInfo_tb (carId, carOwnerId, lawbreakerInfo) VALUES ('{$carId}', '{$carOwnerId}', '{$lawbreakerInfo}')";
+$json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => $sql);
+exit(json_encode($json));
 if (!mysqli_query($connect, $sql)) {
     $json = array('result' => 'failed', 'errorInfo' => 'It is failed to insert data to database!', 'sql' => $sql);
     exit(json_encode($json));
