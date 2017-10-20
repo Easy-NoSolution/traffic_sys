@@ -10,7 +10,7 @@ require ('connect.php');
 
 $carOwnerName = @$_GET['carOwnerName'] ? $_GET['carOwnerName'] : null;
 
-if (empty($carOwnerId)) {
+if (empty($carOwnerName)) {
     $json = array('result' => 'failed', 'errorInfo' => 'carOwnerName is null');
     exit(json_encode($json));
 }
