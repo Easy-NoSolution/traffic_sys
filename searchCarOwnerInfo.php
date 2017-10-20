@@ -22,8 +22,7 @@ if (!$row) {
     $json = array("result" => 'failed', 'errorInfo' => "This carId is not exist", 'sql' => $sql);
     exit(json_encode($json));
 }
-$json = array("result" => 'failed', 'errorInfo' => "This carId is not exist", 'carOwnerId' => $row['carOwnerId'], 'carOwnerName' => $row['carOwnerName']);
-exit(json_encode($json));
-$json = array('result' => 'success', 'carOwnerInfo' => array('carOwnerId' => $row['carOwnerId'], 'carOwnerName' => $row['carOwnerName'], 'carOwnerSex' => $row['carOwnerSex'], 'carOwnerBithday' => $row['carOwnerBithday'], 'carOwnerAddress' => $row['carOwnerAddress'], 'carOwnerPhoneNumber' => $row['carOwnerPhoneNumber'], 'carOwnerAvatar' => $row['carOwnerAvatar']));
+
+$json = array('result' => 'success', 'carOwnerInfo' => array('carOwnerId' => $row['carOwnerId'], 'carOwnerName' => $row['carOwnerName'], 'carOwnerSex' => $row['carOwnerSex'], 'carOwnerBirthday' => $row['carOwnerBirthday'], 'carOwnerAddress' => $row['carOwnerAddress'], 'carOwnerPhoneNumber' => $row['carOwnerPhoneNumber'], 'carOwnerAvatar' => $row['carOwnerAvatar']));
 exit(json_encode($json));
 ?>
