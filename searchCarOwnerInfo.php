@@ -16,6 +16,8 @@ if (empty($carOwnerId)) {
 }
 
 $sql = "select * from carOwner_tb where carOwnerId = '{$carOwnerId}'";
+$json = array("result" => 'failed', 'errorInfo' => "This carId is not exist", 'sql' => $sql);
+exit(json_encode($json));
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if (!$row) {
