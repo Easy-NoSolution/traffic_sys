@@ -15,7 +15,7 @@ if (empty($carOwnerId)) {
     exit(json_encode($json));
 }
 
-$sql = "select * from carOwner_tb where carId = '{$carOwnerId}'";
+$sql = "select * from carOwner_tb where carOwnerId = '{$carOwnerId}'";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 if (!$row) {
