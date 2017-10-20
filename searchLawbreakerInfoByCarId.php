@@ -15,12 +15,12 @@ if (empty($carId)) {
     exit(json_encode($json));
 }
 
-$sql = "select distinct lawbreakerInfo_tb.carId, lawbreakerInfo_tb.carOwnerId, carOwner_tb.carOwnerName, carOwner_tb.carOwnerSex, carOwner_tb.carOwnerPhoneNumber, car_tb.carName, car_tb.carColor from car_tb, carOwner_tb, lawbreakerInfo_tb where lawbreakerInfo_tb.carId = car_tb.carId and lawbreakerInfo_tb.carOwnerId = carOwner_tb.carOwnerId and car_tb.carId = '{$carId}'";
+$sql = "select distinct lawbreakerInfo_tb.carId, lawbreakerInfo_tb.carOwnerId, carOwner_tb.carOwnerName, carOwner_tb.carOwnerSex, carOwner_tb.carOwnerPhoneNumber, car_tb.carName, car_tb.carColor, lawbreakerInfo_tb.lawbreakerInfo from car_tb, carOwner_tb, lawbreakerInfo_tb where lawbreakerInfo_tb.carId = car_tb.carId and lawbreakerInfo_tb.carOwnerId = carOwner_tb.carOwnerId and car_tb.carId = '{$carId}'";
 $result = mysqli_query($connect, $sql);
 $lawbreakerInfos = array();
 $lawbreakerInfoId = 1;
 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-    array_push($lawbreakerInfos, array('lawbreakerInfoId' => $lawbreakerInfoId++,'carId' => $row['carId'], 'carOwnerId' => $row['carOwnerId'], 'carOwnerName' => $row['carOwnerName'], 'carOwnerSex' => $row['carOwnerSex'], 'carOwnerPhoneNumber' => $row['carOwnerPhoneNumber'], 'carName' => $row['carName'], 'carColor' => $row['carColor']));
+    array_push($lawbreakerInfos, array('lawbreakerInfoId' => $lawbreakerInfoId++,'carId' => $row['carId'], 'carOwnerId' => $row['carOwnerId'], 'carOwnerName' => $row['carOwnerName'], 'carOwnerSex' => $row['carOwnerSex'], 'carOwnerPhoneNumber' => $row['carOwnerPhoneNumber'], 'carName' => $row['carName'], 'carColor' => $row['carColor'], 'lawbreakerInfo' => $row['lawbreakerInfo']));
 }
 $json = array('result' => 'success', 'lawbreakerInfos' => $lawbreakerInfos);
 exit(json_encode($json));
