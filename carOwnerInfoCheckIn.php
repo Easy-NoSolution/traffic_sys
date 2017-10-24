@@ -24,7 +24,7 @@ if ($_FILES['carOwnerAvatar']['error'] > 0) {
     $fillname = $_FILES['carOwnerAvatar']['name'];
     $dotArray = explode('.', $fillname);
     $type = end($dotArray);
-    $carOwnerAvatar = "/traffic_sys_pictures/user_pics/".$carOwnerId.'.'.$type;
+    $carOwnerAvatar = "/traffic_sys_pictures/carOwner_pics/".$carOwnerId.'.'.$type;
     $path = "/usr/local/apache/htdocs".$carOwnerAvatar;
 //    上传时要去虚拟机下修改文件夹的权限 chmod 777 /usr/local/apache/htdocs/traffic_sys_pictures
 //    否则会报错 Error Domain=NSCocoaErrorDomain Code=3840 "JSON text did not start with array or object and option to allow fragments not set." UserInfo={NSDebugDescription=JSON text did not start with array or object and option to allow fragments not set.}
